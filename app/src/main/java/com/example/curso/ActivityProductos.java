@@ -3,6 +3,7 @@ package com.example.curso;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -54,6 +55,25 @@ public class ActivityProductos extends AppCompatActivity {
 
 
         }
+
+    }
+    public void buscarProducto(View v){
+        AdminSqLiteOpenHelper admin=new AdminSqLiteOpenHelper(this,"administracion",null,1);
+        SQLiteDatabase bd=admin.getWritableDatabase();
+        String codigo=edtCodigo.getText().toString();
+        if (codigo.trim().equals("")){
+            Toast.makeText(this,"Ingresa un código",Toast.LENGTH_SHORT).show();
+        }else{
+            Cursor fila=bd.rawQuery("Select nombreProducto,precio from articulos where codigo="+codigo, null);
+            if (fila.moveToFirst()){
+                edtNombre.setText(fila.getString(0));
+                edtPrecio.setText(fila.getString(1));
+                bd.close();
+            }else{
+                Toast.makeText(this,"No existe el articulo",Toast.LENGTH_SHORT).show();
+            }
+        }
+
 
     }
 
