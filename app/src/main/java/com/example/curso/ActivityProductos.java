@@ -76,5 +76,63 @@ public class ActivityProductos extends AppCompatActivity {
 
 
     }
+    public void eliminarProducto(View v){
+        AdminSqLiteOpenHelper admin=new AdminSqLiteOpenHelper(this,"administracion",null,1);
+        SQLiteDatabase bd=admin.getWritableDatabase();
+        String codigo=edtCodigo.getText().toString();
+        if (codigo.trim().equals("")){
+            Toast.makeText(this,"Ingresa un código",Toast.LENGTH_SHORT).show();
+        }else{
+            int affected_rows=bd.delete("articulos","codigo="+codigo,null);
+            bd.close();
+            if (affected_rows==1){
+                Toast.makeText(this,"Articulo borrado",Toast.LENGTH_SHORT).show();
+                resetCampos();
+            }else{
+                Toast.makeText(this,"El código no existe",Toast.LENGTH_SHORT).show();
+            }
+
+        }
+    }
+    public void updateProducto(View v){
+        AdminSqLiteOpenHelper admin=new AdminSqLiteOpenHelper(this,"administracion",null,1);
+        SQLiteDatabase bd=admin.getWritableDatabase();
+        String codigo,nombre,strPrecio;
+        codigo=edtCodigo.getText().toString();
+        nombre=edtNombre.getText().toString();
+        strPrecio=edtPrecio.getText().toString();
+        if (codigo.trim().equals("")){
+            Toast.makeText(this,"Ingresa un código",Toast.LENGTH_SHORT).show();
+            edtCodigo.requestFocus();
+
+        }else if (nombre.trim().equals("")){
+            Toast.makeText(this,"Ingresa un nombre",Toast.LENGTH_SHORT).show();
+            edtNombre.requestFocus();
+        }else if (strPrecio.equals("")){
+            Toast.makeText(this,"Ingresa un Precio",Toast.LENGTH_SHORT).show();
+            edtPrecio.requestFocus();
+
+        }else{
+            ContentValues registro=new ContentValues();
+            registro.put("codigo",codigo);
+            registro.put("nombreProducto",nombre);
+            registro.put("precio",strPrecio);
+            int affected_rows=bd.update("articulos",registro,"codigo="+codigo,null);
+            bd.close();
+            if (affected_rows==1){
+                Toast.makeText(this,"Articulo actualizado",Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(this,"El código no existe",Toast.LENGTH_SHORT).show();
+            }
+
+        }
+
+    }
+    public void resetCampos(){
+        edtCodigo.setText("");
+        edtNombre.setText("");
+        edtPrecio.setText("");
+
+    }
 
 }
