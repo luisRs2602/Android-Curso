@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#050505"
+    tools:context=".ActivityProductos">
+
+    <Button
+        android:id="@+id/bt_delete"
+        android:layout_width="237dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/gris"
+        android:text="@string/tx_eliminar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_update" />
+
+    <Button
+        android:id="@+id/bt_update"
+        android:layout_width="237dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/gris"
+        android:text="@string/tx_modificar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_buscar" />
+
+    <EditText
+        android:id="@+id/edt_codigo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/style_border_et"
+        android:ems="10"
+        android:hint="Código del PRoducto"
+        android:inputType="number"
+        android:maxLength="5"
+        android:textColor="@color/gris"
+        android:textColorHint="@color/gris"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edt_nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/style_border_et"
+        android:ems="10"
+        android:hint="Nombre del Producto"
+        android:inputType="text"
+        android:textColor="@color/gris"
+        android:textColorHint="@color/gris"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_codigo" />
+
+    <EditText
+        android:id="@+id/edt_precio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/style_border_et"
+        android:ems="10"
+        android:hint="Precio del Producto"
+        android:inputType="numberDecimal"
+        android:textColor="@color/gris"
+        android:textColorHint="@color/gris"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_nombre" />
+
+    <Button
+        android:id="@+id/bt_save"
+        android:layout_width="237dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="68dp"
+        android:backgroundTint="@color/gris"
+        android:onClick="guardarProducto"
+        android:text="@string/tx_registrar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_precio" />
+
+    <Button
+        android:id="@+id/bt_buscar"
+        android:layout_width="237dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/gris"
+        android:text="@string/tx_buscar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_save" />
+</androidx.constraintlayout.widget.ConstraintLayout>

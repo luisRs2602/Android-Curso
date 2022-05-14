@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Curso</string>
+    <string name="hola_mundo">Hola Mundo!!!</string>
+    <string name="n_mero_2">Número 2</string>
+    <string name="ph_n1">Número 1</string>
+    <string name="tx_bt">Ok</string>
+    <string name="tx_rb1">Suma</string>
+    <string name="tx_rb2">Resta</string>
+    <string name="tx_imgBt">Inofrmacion</string>
+    <string name="tx_tituloAdd">Alta Usuario</string>
+    <string name="tx_btadd">Guardar</string>
+    <string name="tx_name">Nombre</string>
+    <string name="tx_ape">Apellido</string>
+    <string name="tx_mail">Mail</string>
+    <string name="tx_user">Usuario</string>
+    <string name="tx_btCancel">Cancelar</string>
+    <string name="tx_registrar">Registrar</string>
+    <string name="tx_buscar">Buscar</string>
+    <string name="tx_modificar">Modificar</string>
+    <string name="tx_eliminar">Eliminar</string>
+
+</resources>
